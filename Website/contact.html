@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+		<title> Contact </title>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "contact.css">
+		
+		<script>
+			function validate(){
+				var username = document.forms["nameform"]["userName"];
+				<!--var userEmail = document.forms["nameform"]["userMail"];-->
+				var userEmail = mail.checkValidity();
+				var Msg = document.forms["nameform"]["userMessage"];
+				
+				if ((username ==" ") || (username == "") || (username.value.length == 0))  {
+					alert("Please enter a name");
+					return false;
+				}
+				if (Msg == " ")  {
+					alert("Please enter a message");
+					return false;
+				}
+				if (Msg.value.length > 300){
+					alert("Please keep the message 300 characters or less");
+					return false;
+					}
+				if (userEmail != true){
+				
+					alert("The email address entered is invalid");
+					return false;
+				}
+				
+				
+				return true;
+				
+			
+			}
+		</script>	
+	</head>
+	
+	<body>
+		<?php
+	
+		$userName = $userMail  = $userMessage  = "";
+
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		  $userName = test_input($_POST["userName"]);
+		  $userMail = test_input($_POST["userMail"]);
+		  $userMessage = test_input($_POST["userMessage"]);
+		  $userPhone = test_input($_POST["userPhone"]);
+
+
+		function test_input($data) {
+		  $data = trim($data);
+		  $data = stripslashes($data);
+		  $data = htmlspecialchars($data);
+		  return $data;
+		}
+		?>
+		
+	
+		<ul class = "navBar">
+			<li class = "liBar"><a href = "/home/linda/School/Mart120/Website/index.html"> Home Page</a></li>
+			<li class = "liBar"><a href = "/home/linda/School/Mart120/Website/page2.html"> Photo Edit</a></li>
+			<li class = "liBar" ><a class = "active" href = "/home/linda/School/Mart120/Website/contact.html"> Contact</a></li>
+		</ul>
+
+		<div id = "form">
+			<form name = "nameform"  onsubmit = "return validate()" method = "post" action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" > 
+			<ul class = "ulform">
+			<label > <span style="color:Red;">*</span>Required</label>
+				<li class = "liform">
+					<label for = "name"><span style="color:Red;">*</span>Name:</label>
+					<input type = "text" id = "name" name = "userName" required >
+				</li>
+
+				<li class "liform">
+					<label for = "mail"><span style="color:Red;">*</span>E-mail:</label>
+					<input type = "email" id = "mail" name = "userMail" required >
+				</li>
+			
+					<label for = "msg"> <span style="color:Red;">*</span>Message(300 charachters or less):</label>
+					<textarea id="msg" name="userMessage" required ></textarea>
+				</li>
+				<li>
+					<label for = terms> I accept the terms of agreement </label><br>
+					<input type="checkbox" id="termsYes" name="userTermsYes" value="Yes">
+					<label for="termsYes"> Yes</label><br>
+					
+					<input type="checkbox" id="termsNo" name="userTermsNo" value="No">
+					<label for="termsNo"> No</label><br>
+				</li>	
+			</ul>
+			<li class = "button">
+				<button type = "submit" value = "Submit"> Submit</button>
+			</li>
+
+			</form>
+			<!--<?php
+				#echo "<h2>Your Input:</h2>";
+				#echo $userName;
+				#echo "<br>";
+				#echo $userMail;
+				#echo "<br>";
+				#echo $userPhone;
+				#echo "<br>";
+				#echo $userMessage;
+
+			?>-->
+			
+		</div>
+	
+	</body>
+
+	
+</html>
