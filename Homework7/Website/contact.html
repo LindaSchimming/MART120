@@ -1,0 +1,59 @@
+<!DOCTYPE html> <!-- This Bootsrap style really messed up my mojo haha -->
+<html lang = "en">
+	<head>
+		<title> Contact </title>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	</head>
+	
+	
+	<body>
+		
+	<style>
+		<ul class = "navBar">
+			<li class = "liBar"><a href = "index.html"> Home Page</a></li>
+			<li class = "liBar"><a href = "page2.html"> Photos</a></li>
+			<li class = "liBar" ><a class = "active" href = "contact.html"> Contact</a></li>
+		</ul>
+	</style>
+
+		<div id = "form">
+			<form name = "nameform"  > 
+			<ul class = "ulform">
+			<label > <span style="color:Red;">*</span>Required</label>
+				<li class = "liform">
+					<label for = "name"><span style="color:Red;">*</span>Name:</label>
+					<input type = "text" id = "name" name = "userName" required >
+				</li>
+
+				<li class "liform">
+					<label for = "mail"><span style="color:Red;">*</span>E-mail:</label>
+					<input type = "email" id = "mail" name = "userMail" required >
+				</li>
+			
+					<label for = "msg"> <span style="color:Red;">*</span>Message(300 charachters or less):</label>
+					<textarea id="msg" name="userMessage" required ></textarea>
+				</li>
+				<li>
+					<label for = terms> I accept the terms of agreement </label><br>
+					<input type="checkbox" id="termsYes" name="userTermsYes" value="Yes">
+					<label for="termsYes"> Yes</label><br>
+					
+					<input type="checkbox" id="termsNo" name="userTermsNo" value="No">
+					<label for="termsNo"> No</label><br>
+				</li>	
+			</ul>
+			<li class = "button">
+				<button type = "submit" value = "Submit"> Submit</button>
+			</li>
+
+			</form>
+		
+			
+		</div>
+	
+	</body>
+
+	
+</html>
