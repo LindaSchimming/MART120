@@ -1,0 +1,82 @@
+/* Navigation bar*/
+.navBar {
+	list-style-type: none; /*removes bullet points*/
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	background-color: LightBlue;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	border: 1px solid Black;
+}
+
+.liBar a {
+	display: block; /* makes the link area clickable and allows you to specify the size of the block*/
+	color: Black;
+	/*width: 150px;*/
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+.liBar {
+	text-align: center;
+	border-bottom: 1px solid Black;
+	
+}
+
+li a:hover:not(.active){
+	background-color: SteelBlue;
+	color: White;
+	
+}
+
+li a.active {
+	background-color: Gray;
+	color: White;
+	border: 1px solid Gray;
+}
+
+li: last-child{
+	border-bottom: none;
+}
+/* end navigation bar*/
+body{
+	margin: 0;
+}
+
+#homePage{
+	margin-left: 20%;
+	padding: 1px 16px;
+	height: 1000px;
+	background-color: Linen;
+	
+}
+
+#homeDiv{
+	border: 4px solid LightSeaGreen;
+	background-color: LightGray;
+	padding: 20px;
+	text-align:right;
+	
+	
+}
+
+#headings{
+	border: 7px solid Black;
+	background-color: LightSteelBlue;
+	
+}
+
+#page3{
+	margin-left: 20%;
+	padding: 1px 16px;
+	height: 1000px;
+	background-color: DarkTurquoise;
+	text-align:center;
+	
+	
+}
+
+
+

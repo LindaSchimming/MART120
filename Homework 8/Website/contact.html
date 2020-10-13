@@ -1,0 +1,101 @@
+<!DOCTYPE html> 
+<html lang = "en">
+	<head>
+		<title> Contact </title>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "contact.css">
+	<script>
+			function validate(){
+				var username = document.forms["nameform"]["userName"];
+				<!--var userEmail = document.forms["nameform"]["userMail"];-->
+				var userEmail = mail.checkValidity();
+				var Msg = document.forms["nameform"]["userMessage"];
+				var agree = document.forms["nameform"]["userTermsYes"];
+				var noAgree = document.forms["nameform"]["userTermsNo"];
+				
+				if ((username ==" ") || (username == "") || (username.value.length == 0))  {
+					alert("Please enter a name");
+					name.background-color = "IndianRed";
+				}
+				//if (Msg == " ")  {
+					//alert("Please enter a message");
+					//document.getElementById('msg').focus() = true;
+					//return false;
+				//}
+				//if (Msg.value.length > 300){
+					//alert("Please keep the message 300 characters or less");
+					//document.getElementById('msg').focus() = true;
+					//return false;
+					//}
+				if (userEmail != true){
+				
+					alert("The email address entered is invalid");
+					mail.background-color = "IndianRed";
+					//document.getElementById('mail').focus() = true;
+					return false;
+				}
+				if(agree == false && noAgree == false){
+					alert("Please check a box");
+					termsYes.background-color = "IndianRed";
+					//document.getElementById('termsYes').focus() = true;
+					return false;
+					
+				}
+				
+				return true;
+				
+			
+			}
+		</script>	
+	</head>
+	
+	
+	<body>
+		
+
+		<ul class = "navBar">
+			<li class = "liBar"><a href = "index.html"> Home Page</a></li>
+			<li class = "liBar"><a href = "page2.html"> Photos</a></li>
+			<li class = "liBar" ><a class = "active" href = "contact.html"> Contact</a></li>
+		</ul>
+
+
+		<div id = "form">
+			<form name = "nameform"  onsubmit = "return validate()"> 
+			<ul class = "ulform">
+			<label > <span style="color:Red;">*</span>Required</label>
+				<li class = "liform">
+					<label for = "name"><span style="color:Red;">*</span>Name:</label>
+					<input type = "text" id = "name" name = "userName" required>
+				</li>
+
+				<li class "liform">
+					<label for = "mail"><span style="color:Red;">*</span>E-mail:</label>
+					<input type = "email" id = "mail" name = "userMail" required >
+				</li>
+			
+					<label for = "msg"> <span style="color:Red;">*</span>Message(300 charachters or less):</label>
+					<textarea id="msg" name="userMessage" required ></textarea>
+				</li>
+				<li>
+					<label for = terms> I accept the terms of agreement </label><br>
+					<input type="checkbox" id="termsYes" name="userTermsYes" value="Yes">
+					<label for="termsYes"> Yes</label><br>
+					
+					<input type="checkbox" id="termsNo" name="userTermsNo" value="No">
+					<label for="termsNo"> No</label><br>
+				</li>	
+			</ul>
+			<li class = "button">
+				<button type = "submit" value = "Submit"> Submit</button>
+			</li>
+
+			</form>
+		
+			
+		</div>
+	
+	</body>
+
+	
+</html>
