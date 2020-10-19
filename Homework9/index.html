@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title> first p5.js page</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+		<script>
+			
+			function setup()
+			{
+				createCanvas(500, 600);
+			}
+
+			function draw()
+			{
+				background(0,200,200);
+				textSize(22);
+			  
+				// hair
+				fill(70,50,40)
+				rect(150,200,200,250);
+				
+				//neck
+				fill(255, 204, 170);
+				rect(200,300,100,100);
+				// head
+				fill(255, 204, 170);
+				ellipse(250,300,175);
+			   
+				// eyes
+				strokeWeight(5);
+				fill(1000);
+				circle(205,290, 30);
+				circle(285,290, 30);
+				fill(50,150, 200);
+				circle(205,285, 15);
+				point(205,285);
+				circle(285,295, 15);
+				point(285,295);
+				// nose
+				fill(200, 0,0);
+				triangle(245, 305, 235, 320, 255, 320);
+				
+				// mouth
+				line(220, 340, 275, 340);
+
+				
+				// body
+				fill(100, 24, 20);
+				rect(100,400,300,450);
+				rect(30,450,50,300);
+				ellipse(50,450,100);
+
+				rect(430,450,50,300);
+				ellipse(450,450,100);
+				 
+			  //bowtie
+				fill(50);
+				triangle(250,430,210,410,210,450);
+				triangle(250,430,290,410,290,450);
+				circle(250,430,30);
+				
+				fill(55);
+				textSize(22);
+				text("BUFF ME: Linda Schimming",200,60 );
+
+
+			}
+		</script>
+	</head>
+	<body>
+		
+	
+	</body>
+</html>
