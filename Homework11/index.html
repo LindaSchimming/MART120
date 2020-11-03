@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<title> first p5.js page</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+		<script>
+			
+				var characterX = 100;
+				var characterY = 100;
+				// define the key codes for each letter
+				var w = 87; 
+				var a = 83;
+				var s = 65;
+				var d = 68;
+
+				
+				var rain1X = 30;
+				var rain1Y = 50;
+				var rain1XSpeed;
+				var rain1YSpeed;
+
+				var rain2X = 400;
+				var rain2Y = 100;
+				var rain2XSpeed;
+				var rain2YSpeed;
+
+				var rain3X = 200;
+				var rain3Y = 100;
+				var rain3XSpeed;
+				var rain3YSpeed;
+
+				
+				var mouseShapeX;
+				var mouseShapeY;
+				function setup()
+				{
+					createCanvas(500, 600);
+					// get a random speed when the it first starts
+					rain1XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					rain1YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+				  
+					rain2XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					rain2YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+				  
+					rain3XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					rain3YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+				}
+
+				function draw()
+				{
+					background(10,100,50);
+					stroke(0);
+					fill(0);
+				  
+					text("Oh no, it's raining better get home!", 100,50)
+				  
+					rect(150,500,220,580)
+					fill(160);
+					textSize(25);
+					text("Home", 230,580);
+
+
+
+					//character
+					fill(100,100,100);
+					circle(characterX,characterY,35);
+
+					// handle the keys
+					if(keyIsDown(w))
+					{
+						characterY -= 10;   
+					}
+					if(keyIsDown(a))
+					{
+						characterY += 10;   
+					}
+					if(keyIsDown(s))
+					{
+						characterX -= 10;   
+					}
+					if(keyIsDown(d))
+					{
+						characterX += 10;   
+					}
+
+					//rain
+					fill(13,100,114);
+					// draw the shape
+					circle(rain1X, rain1Y, 10);
+
+					 // get a random speed when the it first starts
+					 rain1XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					 rain1YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+					// move the shape
+					rain1X += rain1XSpeed;
+					rain1Y += rain1YSpeed;
+					// check to see if the shape has gone out of bounds
+					if(rain1X > width)
+					{
+						rain1X = 0;
+					}
+					if(rain1X < 0)
+					{
+						rain1X = width;
+					}
+					if(rain1Y > height)
+					{
+						rain1Y = 0;
+					}
+					if(rain1Y < 0)
+					{
+						rain1Y = height;
+					}
+				  
+					circle(rain2X, rain2Y, 20);
+
+					 // get a random speed when the it first starts
+					 rain2XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					 rain2YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+					// move the shape
+					rain2X += rain2XSpeed;
+					rain2Y += rain2YSpeed;
+					// check to see if the shape has gone out of bounds
+					if(rain2X > width)
+					{
+						rain2X = 0;
+					}
+					if(rain2X < 0)
+					{
+						rain2X = width;
+					}
+					if(rain2Y > height)
+					{
+						rain2Y = 0;
+					}
+					if(rain2Y < 0)
+					{
+						rain2Y = height;
+					}
+				  
+					circle(rain3X, rain3Y, 15);
+
+					 // get a random speed when the it first starts
+					 rain3XSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					 rain3YSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+					// move the shape
+					rain3X += rain3XSpeed;
+					rain3Y += rain3YSpeed;
+					// check to see if the shape has gone out of bounds
+					if(rain3X > width)
+					{
+						rain3X = 0;
+					}
+					if(rain3X < 0)
+					{
+						rain3X = width;
+					}
+					if(rain3Y > height)
+					{
+						rain3Y = 0;
+					}
+					if(rain3Y < 0)
+					{
+						rain3Y = height;
+					}
+				  
+				  //end rain
+
+					// check to see if the character has left the exit
+					if(characterX > 130 && characterY > 490 && characterX < 370 && characterY < 600)
+					{
+						//fill(120,100,20)
+						fill(200);
+						text("Yay, warm and dry!", 150, 400);
+					}
+
+					// mouse click puddle
+					fill(13,100,114);
+					circle(mouseShapeX, mouseShapeY, 70);
+				}
+
+				function mouseClicked()
+				{
+					mouseShapeX = mouseX;
+					mouseShapeY = mouseY;
+				}
+
+
+		</script>
+	</head>
+	<body>
+		
+	
+	</body>
+</html>
