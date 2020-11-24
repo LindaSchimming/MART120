@@ -1,0 +1,194 @@
+<html>
+	<head>
+		<title> first p5.js page</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+		<script>
+			
+				var characterX = 100;
+				var characterY = 100;
+				// define the key codes for each letter
+				var w = 87; 
+				var a = 83;
+				var s = 65;
+				var d = 68;
+
+				
+				var rain1X = 30;
+				var rain1Y = 50;
+		
+
+				var rain2X = 400;
+				var rain2Y = 100;
+		
+
+				var rain3X = 200;
+				var rain3Y = 100;
+	
+				
+				var shapeX = [30 , 400, 200, 150, 220, 100];
+				var shapeY = [50, 100, 100, 500, 580,300];
+				
+				var speedX = [];
+				var speedY = [];
+				
+
+				
+				var mouseShapeX;
+				var mouseShapeY;
+				function setup()
+				{
+					createCanvas(500, 600);
+					// get a random speed when the it first starts
+					//speedX[0] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);  //rain 1 x speed
+					//speedY[0] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1); //rain 1 Y speed
+				  
+					//speedX[1] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1); // rain 2 x
+					//speedY[1] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1); //rain 2 y
+				  
+					//speedX[2] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1); // rain 3 x
+					//speedy[2] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1); //rain 3 y
+				}
+
+				function draw()
+				{
+					backGround()
+
+
+					home();
+					//character
+					createPlayer();
+
+					// handle the keys
+					playerMovement();
+
+					//rain
+					makeRain()
+				  //end rain
+
+					// mouse click puddle
+					drawCircle();
+				
+					
+				}
+				function backGround(){
+					background(10,100,50);
+					stroke(0);
+					fill(0);
+					
+					text("Oh no, it's raining better get home!", 100,50)
+					
+					//large puddle 
+					fill(0,10,150);
+					circle( shapeX[5] , shapeY[5], 200);
+				  
+				}
+
+				function mouseClicked()
+				{
+					mouseShapeX = mouseX;
+					mouseShapeY = mouseY;
+				}
+				function drawCircle(){
+					fill(13,100,114);
+					circle(mouseShapeX, mouseShapeY, 70);
+				}
+				function playerMovement(){
+				// handle the keys
+					if(keyIsDown(w))
+					{
+						characterY -= 10;   
+					}
+					if(keyIsDown(a))
+					{
+						characterY += 10;   
+					}
+					if(keyIsDown(s))
+					{
+						characterX -= 10;   
+					}
+					if(keyIsDown(d))
+					{
+						characterX += 10;   
+					}
+
+				}
+				
+				function createPlayer(){
+						//character
+					fill(100,100,100);
+					circle(characterX,characterY,35);
+
+				}
+
+			function makeRain(){
+					
+					//rain
+					color = 114;
+					color0 = 100;
+					fill(13,color0,color);
+					size = 20;
+					// draw the shape
+					for( i =0; i<3; i++){
+					fill(13,100,color);
+					color += 70;
+					if(color0 - 30 > 0){
+					color0 -= 30;
+					}
+					circle(shapeX[i], shapeY[i], size);
+					size += 10;
+					 // get a random speed when the it first starts
+					speedX[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+					speedY[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+
+					// move the shape
+					shapeX[i] += speedX[i];
+					shapeY[i] += speedY[i];
+			
+					// check to see if the shape has gone out of bounds
+					if(shapeX[i]  > width)
+					{
+						shapeX[i]  = 0;
+					}
+					if(shapeX[i]  < 0)
+					{
+						shapeX[i]  = width;
+					}
+					if(shapeY[i] > height)
+					{
+						shapeY[i] = 0;
+					}
+					if(shapeY[i] < 0)
+					{
+						shapeY[i]= height;
+					}
+				  }
+			}
+			
+			function home(){
+					fill(0);
+					text("Oh no, it's raining better get home!", 100,50)
+			
+					rect(shapeX[3],shapeY[3],shapeX[4],shapeY[4])
+					fill(160);
+					textSize(25);
+					text("Home", 230,580);
+					
+					if(characterX > 130 && characterY > 490 && characterX < 370 && characterY < 600){
+						win();
+					}
+			}
+
+			function win(){
+						
+						fill(200);
+						text("Yay, warm and dry!", 150, 400);
+				
+			}
+
+		</script>
+	</head>
+	<body>
+		
+	
+	</body>
+</html>
